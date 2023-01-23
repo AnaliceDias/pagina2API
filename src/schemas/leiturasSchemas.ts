@@ -1,10 +1,10 @@
 import Joi, { Schema } from "joi";
 
 export const criarLeituraSchema: Schema = Joi.object({
-    titulo: Joi.string(),
-    autor: Joi.string(),
-    edicao: Joi.string(),
-    numeroDePag: Joi.string(),
-    formatoId: Joi.number(),
-    statusId: Joi.number(),
+    titulo: Joi.string().required(),
+    autor: Joi.string().required(),
+    edicao: Joi.string().required(),
+    numeroDePag: Joi.string().required(),
+    formatoId: Joi.number().required(),
+    statusId: Joi.number().required(),
 })
