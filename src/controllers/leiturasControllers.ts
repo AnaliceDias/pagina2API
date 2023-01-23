@@ -21,3 +21,12 @@ export async function apagarLeitura (req: Request, res: Response) {
         return res.status(404).send(e);
     }
 }
+
+export async function listarLeituras(req: Request, res: Response) {
+    try{
+        const leituras = await leiturasService.listarLeituras();
+        res.status(200).send(leituras);
+    }catch(e){
+        return res.status(500).send(e);
+    }
+}
