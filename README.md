@@ -1,4 +1,4 @@
-### pagina2API é uma aplicação back-end que tem como objetivo facilitar a organização das leituras pessoais do usuário.
+### ```Pagina 2``` é uma aplicação back-end que tem como objetivo facilitar a organização das leituras pessoais do usuário.
 
 > *<p>Para executar a aplicação em modo de desenvolvimento utilize o comando ```npm run dev```</p>*
 > *<p>Para executar a aplicação em produção, execute os camando ```npm run build``` e ```npm start```</p>*
