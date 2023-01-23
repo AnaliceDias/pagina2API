@@ -50,3 +50,21 @@ export async function listarLeituraPeloId(req: Request, res: Response) {
         return res.status(500).send(e);
     }
 }
+
+export async function listarStatus(req: Request, res: Response){
+    try{
+        const status = await leiturasService.listarStatus();
+        res.status(200).send(status);
+    }catch(e){
+        return res.status(500).send(e);
+    }
+}
+
+export async function listarFormatos(req: Request, res: Response){
+    try{
+        const formatos = await leiturasService.listarFormatos();
+        res.status(200).send(formatos);
+    }catch(e){
+        return res.status(500).send(e);
+    }
+}
