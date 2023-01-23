@@ -13,7 +13,17 @@ async function deletarLeitura (leituraId: number) {
     })
 }
 
+async function buscarLeituras () {
+    return await db.minhasLeituras.findMany({
+        include: {
+            status: true,
+            formato: true,
+        }
+    });
+}
+
 export const leiturasRepository = {
     inserirLeitura,
     deletarLeitura,
+    buscarLeituras,
 }
