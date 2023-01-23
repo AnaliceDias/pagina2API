@@ -15,7 +15,6 @@ export async function apagarLeitura (req: Request, res: Response) {
     const leituraId = +req.params.leituraId;
     try{
         const result = await leiturasService.apagarLeitura(leituraId);
-        console.log(result);
         res.status(200).send("Leitura excluída com sucesso");
     }catch(e){
         return res.status(404).send(e);

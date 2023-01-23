@@ -9,6 +9,6 @@ leiturasRouter
     .post("/minhas-leituras", validarSchema(criarLeituraSchema), criarLeitura)
     .delete("/minhas-leituras/:leituraId", apagarLeitura)
     .get("/minhas-leituras", listarLeituras)
-    .put("/minhas-leituras/:leituraId/onde-parei", validarSchema(atualizarPagSchema), atualizarLeitura)
+    .put("/minhas-leituras/:leituraId/pag-atual", validarSchema(atualizarPagSchema), atualizarLeitura)
 
 export default leiturasRouter;

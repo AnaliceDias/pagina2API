@@ -22,7 +22,7 @@ async function listarLeituras (){
             titulo: leitura.titulo,
             autor: leitura.autor,
             edicao: leitura.edicao,
-            numeroDePag: leitura.numeroDePag,
+            numeroDePags: leitura.numeroDePags,
             ondeParei: leitura.ondeParei,
             formato: leitura.formato.formato,
             status: leitura.status.status

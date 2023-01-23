@@ -6,7 +6,7 @@ export type criarLeituraType = {
     titulo: string,
     autor: string,
     edicao: string,
-    numeroDePag: string,
+    numeroDePags: string,
     formatoId: number,
     statusId: number
 }
