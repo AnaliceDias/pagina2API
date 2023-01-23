@@ -22,8 +22,20 @@ async function buscarLeituras () {
     });
 }
 
+async function updateLeitura(leituraId: number, pagAtual: string) {
+    return await db.minhasLeituras.update({
+        where: {
+            id: leituraId,
+        },
+        data: {
+            ondeParei: pagAtual,
+        }
+    })
+}
+
 export const leiturasRepository = {
     inserirLeitura,
     deletarLeitura,
     buscarLeituras,
+    updateLeitura,
 }
