@@ -29,3 +29,9 @@
 <p>Body: 
 { "pagAtual": "10"}
 </p>
+
+> **GET /status**
+<p>Use essa rota para obter a lista de opções de status.</p>
+
+> **GET /formatos**
+<p>Use essa rota para obter a lista de opções de formatos.</p>
