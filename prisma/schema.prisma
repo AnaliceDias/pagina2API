@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Formatos {
+  id Int @id @default(autoincrement())
+  formato String @unique
+
+  MinhasLeituras MinhasLeituras[]
+}
+
+model Status {
+  id Int @id @default(autoincrement())
+  status String @unique
+
+  MinhasLeituras MinhasLeituras[]
+}
+
+model MinhasLeituras {
+  id Int @id @default(autoincrement())
+  titulo String
+  autor String
+  edicao String
+  numeroDePag String @default("0")
+  ondeParei String @default("0")
+  formatoId Int
+  statusId Int
+
+  formato Formatos @relation(fields: [formatoId], references: [id])
+  status Status @relation(fields: [statusId], references: [id])
+}
