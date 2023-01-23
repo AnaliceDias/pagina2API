@@ -8,3 +8,7 @@ export const criarLeituraSchema: Schema = Joi.object({
     formatoId: Joi.number().required(),
     statusId: Joi.number().required(),
 })
+
+export const atualizarPagSchema: Schema = Joi.object({
+    pagAtual: Joi.string().required(),
+})
