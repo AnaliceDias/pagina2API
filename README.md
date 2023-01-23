@@ -15,6 +15,9 @@
 > **GET: /minhas-leituras**
 <p>Use essa rota para listar todas as leituras do usuário.</p>
 
+> **GET: /minhas-leituras/:id**
+<p>Use essa rota para obter uma leitura a partir do id.</p>
+
 > **DELETE /minhas-leituras/:leituraId**
 <p>Use essa rota para excluir uma leitura da lista.</p>
 
