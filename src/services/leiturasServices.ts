@@ -12,7 +12,28 @@ async function apagarLeitura (leituraId: number) {
 
 }
 
+async function listarLeituras (){
+    const result = await leiturasRepository.buscarLeituras();
+    let leituras = [];
+
+    result.map((leitura) => {
+        leituras.push({
+            id: leitura.id,
+            titulo: leitura.titulo,
+            autor: leitura.autor,
+            edicao: leitura.edicao,
+            numeroDePag: leitura.numeroDePag,
+            ondeParei: leitura.ondeParei,
+            formato: leitura.formato.formato,
+            status: leitura.status.status
+        })
+    })
+
+    return leituras;
+}
+
 export const leiturasService = {
     criarLeitura,
     apagarLeitura,
+    listarLeituras,
 }
