@@ -10,3 +10,14 @@ export async function criarLeitura (req: Request, res: Response) {
         return res.status(400).send(e);
     }
 }
+
+export async function apagarLeitura (req: Request, res: Response) {
+    const leituraId = +req.params.leituraId;
+    try{
+        const result = await leiturasService.apagarLeitura(leituraId);
+        console.log(result);
+        res.status(200).send("Leitura excluída com sucesso");
+    }catch(e){
+        return res.status(404).send(e);
+    }
+}
