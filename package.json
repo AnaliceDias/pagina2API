@@ -2,12 +2,12 @@
   "name": "pagina2_poc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && prisma generate && prisma migrate deploy && prisma db seed",
-    "start": "node ./dist/index.js",
-    "dev": "npx nodemon index.ts"
+    "start": "node ./dist/server.js",
+    "dev": "npx nodemon server.ts"
   },
   "prisma": {
     "seed": "ts-node ./prisma/seed.ts"
