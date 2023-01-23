@@ -6,6 +6,14 @@ async function criarLeitura (data: criarLeituraType) {
     return result;
 }
 
+async function apagarLeitura (leituraId: number) {
+    const result = await deletarLeitura(leituraId);
+    //gerar erro
+    return result
+
+}
+
 export const leiturasService = {
     criarLeitura,
+    apagarLeitura,
 }
