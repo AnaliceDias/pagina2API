@@ -32,8 +32,14 @@ async function listarLeituras (){
     return leituras;
 }
 
+async function atualizarLeitura(leituraId: number, pagAtual: string) {
+    const result = await leiturasRepository.updateLeitura(leituraId, pagAtual);
+    return result;
+}
+
 export const leiturasService = {
     criarLeitura,
     apagarLeitura,
     listarLeituras,
+    atualizarLeitura,
 }
