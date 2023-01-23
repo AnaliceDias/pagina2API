@@ -40,3 +40,13 @@ export async function atualizarLeitura(req: Request, res: Response) {
         return res.status(404).send(e);
     }
 }
+
+export async function listarLeituraPeloId(req: Request, res: Response) {
+    const leituraId = +req.params.id;
+    try{
+        const leitura = await leiturasService.listarLeituraPeloId(leituraId);
+        res.status(200).send(leitura);
+    }catch(e){
+        return res.status(500).send(e);
+    }
+}
