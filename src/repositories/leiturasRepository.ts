@@ -22,6 +22,18 @@ async function buscarLeituras () {
     });
 }
 
+async function buscarLeituraPeloId(leituraId: number) {
+    return await db.minhasLeituras.findFirst({
+        where: {
+            id: leituraId
+        },
+        include: {
+            status: true,
+            formato: true,
+        }
+    })
+}
+
 async function updateLeitura(leituraId: number, pagAtual: string) {
     return await db.minhasLeituras.update({
         where: {
@@ -38,4 +50,5 @@ export const leiturasRepository = {
     deletarLeitura,
     buscarLeituras,
     updateLeitura,
+    buscarLeituraPeloId,
 }
