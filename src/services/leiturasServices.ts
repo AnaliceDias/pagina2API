@@ -1,5 +1,6 @@
 import { criarLeituraType } from "../Interfaces/leiturasInterfaces";
 import { leiturasRepository } from "../repositories/leiturasRepository";
+import httpStatus from "http-status";
 
 async function criarLeitura (data: criarLeituraType) {
     const result = await leiturasRepository.inserirLeitura(data);
@@ -32,6 +33,26 @@ async function listarLeituras (){
     return leituras;
 }
 
+async function listarLeituraPeloId (leituraId: number){
+    const result = await leiturasRepository.buscarLeituraPeloId(leituraId);
+
+    if(!result) {
+        throw httpStatus.NOT_FOUND;
+    }
+    let leitura = {
+        id: result.id,
+        titulo: result.titulo,
+        autor: result.autor,
+        edicao: result.edicao,
+        numeroDePags: result.numeroDePags,
+        ondeParei: result.ondeParei,
+        formato: result.formato.formato,
+        status: result.status.status
+    };
+
+    return leitura;
+}
+
 async function atualizarLeitura(leituraId: number, pagAtual: string) {
     const result = await leiturasRepository.updateLeitura(leituraId, pagAtual);
     return result;
@@ -42,4 +63,5 @@ export const leiturasService = {
     apagarLeitura,
     listarLeituras,
     atualizarLeitura,
+    listarLeituraPeloId,
 }
