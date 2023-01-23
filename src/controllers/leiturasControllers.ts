@@ -30,3 +30,14 @@ export async function listarLeituras(req: Request, res: Response) {
         return res.status(500).send(e);
     }
 }
+
+export async function atualizarLeitura(req: Request, res: Response) {
+    const { pagAtual } = req.body;
+    const leituraId = +req.params.leituraId;
+    try{
+        const result = await leiturasService.atualizarLeitura(leituraId, pagAtual);
+        res.status(200).send(result);
+    }catch(e){
+        return res.status(404).send(e);
+    }
+}
