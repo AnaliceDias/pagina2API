@@ -1,14 +1,13 @@
 import { criarLeituraType } from "../Interfaces/leiturasInterfaces";
-import { deletarLeitura, inserirLeitura } from "../repositories/leiturasRepository";
+import { leiturasRepository } from "../repositories/leiturasRepository";
 
 async function criarLeitura (data: criarLeituraType) {
-    const result = await inserirLeitura(data);
+    const result = await leiturasRepository.inserirLeitura(data);
     return result;
 }
 
 async function apagarLeitura (leituraId: number) {
-    const result = await deletarLeitura(leituraId);
-    //gerar erro
+    const result = await leiturasRepository.deletarLeitura(leituraId);
     return result
 
 }
