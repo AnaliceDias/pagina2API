@@ -33,6 +33,9 @@
 <p>Use essa rota para atualizar o status de uma leitura.</p>
 
 > **GET /status**
+<p>Use essa rota para obter a lista de todos os autores registrados.</p>
+
+> **GET /status**
 <p>Use essa rota para obter a lista de opções de status.</p>
 
 > **GET /formatos**
