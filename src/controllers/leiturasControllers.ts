@@ -1,13 +1,14 @@
 import { Request, Response } from "express";
+import httpStatus from "http-status";
 import { leiturasService } from "../services/leiturasServices";
 
 export async function criarLeitura (req: Request, res: Response) {
     const data = req.body;
     try{
         await leiturasService.criarLeitura(data);
-        res.sendStatus(201);
+        res.sendStatus(httpStatus.CREATED);
     }catch(e){
-        return res.status(400).send(e);
+        return res.status(httpStatus.BAD_REQUEST).send(e);
     }
 }
 
@@ -15,18 +16,18 @@ export async function apagarLeitura (req: Request, res: Response) {
     const leituraId = +req.params.leituraId;
     try{
         const result = await leiturasService.apagarLeitura(leituraId);
-        res.status(200).send("Leitura excluída com sucesso");
+        res.status(httpStatus.OK).send("Leitura excluída com sucesso");
     }catch(e){
-        return res.status(404).send(e);
+        return res.status(httpStatus.NOT_FOUND).send(e);
     }
 }
 
 export async function listarLeituras(req: Request, res: Response) {
     try{
         const leituras = await leiturasService.listarLeituras();
-        res.status(200).send(leituras);
+        res.status(httpStatus.OK).send(leituras);
     }catch(e){
-        return res.status(500).send(e);
+        return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
     }
 }
 
@@ -35,9 +36,9 @@ export async function atualizarLeitura(req: Request, res: Response) {
     const leituraId = +req.params.leituraId;
     try{
         const result = await leiturasService.atualizarLeitura(leituraId, pagAtual);
-        res.status(200).send(result);
+        res.status(httpStatus.OK).send(result);
     }catch(e){
-        return res.status(404).send(e);
+        return res.status(httpStatus.NOT_FOUND).send(e);
     }
 }
 
@@ -46,9 +47,9 @@ export async function atualizarStatusDaLeitura(req: Request, res: Response){
     const statusId = +req.params.statusId;
     try{
         const result = await leiturasService.atualizarStatusDaLeitura(leituraId, statusId);
-        res.status(200).send(result);
+        res.status(httpStatus.OK).send(result);
     }catch(e){
-        return res.status(404).send(e);
+        return res.status(httpStatus.NOT_FOUND).send(e);
     }
 }
 
@@ -56,26 +57,26 @@ export async function listarLeituraPeloId(req: Request, res: Response) {
     const leituraId = +req.params.id;
     try{
         const leitura = await leiturasService.listarLeituraPeloId(leituraId);
-        res.status(200).send(leitura);
+        res.status(httpStatus.OK).send(leitura);
     }catch(e){
-        return res.status(500).send(e);
+        return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
     }
 }
 
 export async function listarStatus(req: Request, res: Response){
     try{
         const status = await leiturasService.listarStatus();
-        res.status(200).send(status);
+        res.status(httpStatus.OK).send(status);
     }catch(e){
-        return res.status(500).send(e);
+        return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
     }
 }
 
 export async function listarFormatos(req: Request, res: Response){
     try{
         const formatos = await leiturasService.listarFormatos();
-        res.status(200).send(formatos);
+        res.status(httpStatus.OK).send(formatos);
     }catch(e){
-        return res.status(500).send(e);
+        return res.status(httpStatus.INTERNAL_SERVER_ERROR).send(e);
     }
 }
