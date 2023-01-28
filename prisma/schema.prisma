@@ -7,30 +7,54 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Formatos {
+model formatos {
   id Int @id @default(autoincrement())
   formato String @unique
 
-  MinhasLeituras MinhasLeituras[]
+  MinhasLeituras minhasLeituras[]
 }
 
-model Status {
+model status {
   id Int @id @default(autoincrement())
   status String @unique
 
-  MinhasLeituras MinhasLeituras[]
+  MinhasLeituras minhasLeituras[]
 }
 
-model MinhasLeituras {
+model autores {
+  id Int @id @default(autoincrement())
+  autor String @unique
+
+  obrasAutores obrasAutores[]
+}
+
+model obras {
   id Int @id @default(autoincrement())
   titulo String
-  autor String
+
+  MinhasLeituras minhasLeituras[]
+  obrasAutores obrasAutores[]
+}
+
+model obrasAutores {
+  id Int @id @default(autoincrement())
+  obraId Int
+  autorId Int
+
+  obra obras @relation(fields: [obraId], references: [id])
+  autor autores @relation(fields: [autorId], references: [id])
+}
+
+model minhasLeituras {
+  id Int @id @default(autoincrement())
+  obraId Int
   edicao String
   numeroDePags String
   ondeParei String @default("0")
   formatoId Int
   statusId Int
 
-  formato Formatos @relation(fields: [formatoId], references: [id])
-  status Status @relation(fields: [statusId], references: [id])
+  formato formatos @relation(fields: [formatoId], references: [id])
+  status status @relation(fields: [statusId], references: [id])
+  obra obras @relation(fields: [obraId], references: [id])
 }
