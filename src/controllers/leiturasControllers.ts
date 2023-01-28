@@ -41,6 +41,17 @@ export async function atualizarLeitura(req: Request, res: Response) {
     }
 }
 
+export async function atualizarStatusDaLeitura(req: Request, res: Response){
+    const leituraId = +req.params.leituraId;
+    const statusId = +req.params.statusId;
+    try{
+        const result = await leiturasService.atualizarStatusDaLeitura(leituraId, statusId);
+        res.status(200).send(result);
+    }catch(e){
+        return res.status(404).send(e);
+    }
+}
+
 export async function listarLeituraPeloId(req: Request, res: Response) {
     const leituraId = +req.params.id;
     try{
