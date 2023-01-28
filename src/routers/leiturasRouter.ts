@@ -12,6 +12,6 @@ leiturasRouter
     .get("/minhas-leituras/:id", listarLeituraPeloId)
     .put("/minhas-leituras/:leituraId/pag-atual", validarSchema(atualizarPagSchema), atualizarLeitura)
     .get("/status", listarStatus)
-    .get("/formatos", listarFormatos)
+    .get("/formatos", listarFormatos);
 
 export default leiturasRouter;
