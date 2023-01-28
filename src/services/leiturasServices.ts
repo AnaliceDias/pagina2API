@@ -68,6 +68,11 @@ async function atualizarLeitura(leituraId: number, pagAtual: string) {
     return result;
 }
 
+async function atualizarStatusDaLeitura(leituraId: number, statusId: number){
+    const result = await leiturasRepository.updateStatusDaLeitura(leituraId, statusId);
+    return result;
+}
+
 async function listarStatus() {
     const result = await leiturasRepository.buscarStatus();
     return result;
@@ -83,6 +88,7 @@ export const leiturasService = {
     apagarLeitura,
     listarLeituras,
     atualizarLeitura,
+    atualizarStatusDaLeitura,
     listarLeituraPeloId,
     listarStatus,
     listarFormatos,
