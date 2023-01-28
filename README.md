@@ -29,6 +29,9 @@
 { "pagAtual": "10"}
 </p>
 
+> **PUT /minhas-leituras/:leituraId/:statusId**
+<p>Use essa rota para atualizar o status de uma leitura.</p>
+
 > **GET /status**
 <p>Use essa rota para obter a lista de opções de status.</p>
 
