@@ -32,8 +32,11 @@
 > **PUT /minhas-leituras/:leituraId/:statusId**
 <p>Use essa rota para atualizar o status de uma leitura.</p>
 
-> **GET /status**
+> **GET /autores**
 <p>Use essa rota para obter a lista de todos os autores registrados.</p>
+
+> **GET /autores**
+<p>Use essa rota para obter a lista de todas as obras registradas.</p>
 
 > **GET /status**
 <p>Use essa rota para obter a lista de opções de status.</p>
