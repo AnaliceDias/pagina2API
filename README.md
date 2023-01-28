@@ -7,7 +7,7 @@
 > **POST: /minhas-leituras**
 <p>Use essa rota para adicionar uma nova leitura à sua lista.</p>
 <p>Body: </br>
- { "obraId": "1", </br>
+ { "obraId": 1, </br>
   "edicao": "1ª",  </br>
   "numeroDePag": "300",  </br>
   "formatoId": 1,  </br>
