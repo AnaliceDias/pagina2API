@@ -10,3 +10,12 @@ export async function listarAutores(req: Request, res: Response){
         res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
     }
 }
+
+export async function listarObras(req: Request, res: Response){
+    try{
+        const obras = await acervoService.listarObras();
+        res.status(httpStatus.OK).send(obras);
+    }catch(e){
+        res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
