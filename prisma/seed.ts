@@ -18,7 +18,6 @@ async function main() {
         {autor: "C.S. Lewis"},
         {autor: "John Green"},
         {autor: "David Levithan"},
-        {autor: "Jhon Green"},
         {autor: "Ilana Casoy"},
         {autor: "Raphael Montes"},
         {autor: "Mary Shelley"},
@@ -51,15 +50,15 @@ async function main() {
         },
         {
             obraId: 4,
-            autorId: 5,
+            autorId: 4,
         },
         {
             obraId: 4,
-            autorId: 6,
+            autorId: 5,
         },
         {
             obraId: 5,
-            autorId: 7,
+            autorId: 6,
         },
     ]
 
