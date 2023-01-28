@@ -18,10 +18,14 @@ async function listarLeituras (){
     let leituras = [];
 
     result.map((leitura) => {
+        let listaAutores = [];
+        leitura.obra.obrasAutores.map((autores) => {
+            listaAutores.push(autores.autor.autor)
+        })
         leituras.push({
             id: leitura.id,
-            titulo: leitura.titulo,
-            autor: leitura.autor,
+            titulo: leitura.obra.titulo,
+            autores: [...listaAutores],
             edicao: leitura.edicao,
             numeroDePags: leitura.numeroDePags,
             ondeParei: leitura.ondeParei,
@@ -39,10 +43,16 @@ async function listarLeituraPeloId (leituraId: number){
     if(!result) {
         throw httpStatus.NOT_FOUND;
     }
+
+    let autores = [];
+
+    result.obra.obrasAutores.map((autor) => {
+        autores.push(autor.autor.autor);
+    })
     let leitura = {
         id: result.id,
-        titulo: result.titulo,
-        autor: result.autor,
+        titulo: result.obra.titulo,
+         autores: [...autores],
         edicao: result.edicao,
         numeroDePags: result.numeroDePags,
         ondeParei: result.ondeParei,
