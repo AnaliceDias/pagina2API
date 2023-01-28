@@ -1,10 +1,9 @@
-import { Status , Formatos } from "@prisma/client";
+import { status , formatos } from "@prisma/client";
 
-export type statusType = Omit< Status, "id" >
-export type formatoType = Omit< Formatos, "id" >
+export type statusType = Omit< status, "id" >
+export type formatoType = Omit< formatos, "id" >
 export type criarLeituraType = {
-    titulo: string,
-    autor: string,
+    obraId: number,
     edicao: string,
     numeroDePags: string,
     formatoId: number,
