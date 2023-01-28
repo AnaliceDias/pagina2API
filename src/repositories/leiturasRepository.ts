@@ -18,7 +18,20 @@ async function buscarLeituras () {
         include: {
             status: true,
             formato: true,
-        }
+            obra: {
+                include: {
+                    obrasAutores: {
+                        select: {
+                            autor:{ 
+                                select: {
+                                    autor: true
+                                }
+                            }
+                        }
+                    },
+                }
+            }
+        },        
     });
 }
 
@@ -30,6 +43,19 @@ async function buscarLeituraPeloId(leituraId: number) {
         include: {
             status: true,
             formato: true,
+            obra: {
+                include: {
+                    obrasAutores: {
+                        select: {
+                            autor:{ 
+                                select: {
+                                    autor: true
+                                }
+                            }
+                        }
+                    },
+                }
+            }
         }
     })
 }
