@@ -71,6 +71,17 @@ async function updateLeitura(leituraId: number, pagAtual: string) {
     })
 }
 
+async function updateStatusDaLeitura(leituraId: number, statusId: number){
+    return await db.minhasLeituras.update({
+        where: {
+            id: leituraId,
+        },
+        data: {
+            statusId: statusId,
+        }
+    })
+}
+
 async function buscarStatus() {
     return await db.status.findMany()
 }
@@ -84,6 +95,7 @@ export const leiturasRepository = {
     deletarLeitura,
     buscarLeituras,
     updateLeitura,
+    updateStatusDaLeitura,
     buscarLeituraPeloId,
     buscarStatus,
     buscarFormatos,
